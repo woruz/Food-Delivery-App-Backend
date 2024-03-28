@@ -1,9 +1,9 @@
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
-  "your_database",
-  "your_username",
-  "your_password",
+  "food_delivery",
+  "postgres",
+  "123456",
   {
     host: "localhost",
     dialect: "postgres",
@@ -19,4 +19,4 @@ async function syncDB() {
   }
 }
 
-export default syncDB
+module.exports = { syncDB, sequelize }

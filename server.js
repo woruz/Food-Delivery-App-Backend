@@ -4,7 +4,9 @@ const dotenv = require("dotenv")
 
 
 const swagger = require('./swagger');
-const syncDB = require("./utils/database");
+const { syncDB } = require("./utils/database");
+const pricingRoutes = require('./routes/pricingRoutes')
+
 
 dotenv.config();
 const app = express();
@@ -16,9 +18,7 @@ swagger(app)
 syncDB()
 
 
-app.get("/test",(req,res) => {
-    res.json('Hello World')
-})
+app.use('/pricing', pricingRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

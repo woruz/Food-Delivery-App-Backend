@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const { sequelize } = require('../utils/database');
 
 const Item = sequelize.define('Item', {
   type: {
@@ -12,4 +12,4 @@ const Item = sequelize.define('Item', {
   },
 });
 
-export default Item;
+module.exports = { Item };

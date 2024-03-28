@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
-const Organization = require('./organization');
-const Item = require('./item');
+const { sequelize } = require('../utils/database');
+const { Organization } = require('./organization');
+const { Item } = require('./item');
 
 const Pricing = sequelize.define('Pricing', {
   zone: {
@@ -28,4 +28,4 @@ Pricing.belongsTo(Organization);
 Item.hasMany(Pricing);
 Pricing.belongsTo(Item);
 
-export default Pricing;
+module.exports = { Pricing };
